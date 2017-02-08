@@ -3,7 +3,7 @@ FROM debian
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get install debconf-utils
 RUN echo "mysql-server/root_password password string root" | debconf-set-selections
-RUN echo "mysql-server/root_password_again root" | debconf-set-selections
+RUN echo "mysql-server/root_password_again password string root" | debconf-set-selections
 RUN apt-get install -y mysql-server
 
 ADD my.cnf /etc/mysql/conf.d/my.cnf 
