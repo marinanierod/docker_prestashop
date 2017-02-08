@@ -8,4 +8,4 @@ RUN chown root:root /etc/proftpd/proftpd.conf
 #RUN chown ftp:nogroup /var/www/html/prestashop
 
 EXPOSE 21
-
+ENTRYPOINT ftpmgr.sh
