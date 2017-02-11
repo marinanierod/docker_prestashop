@@ -1,4 +1,5 @@
 FROM debian
+MAINTAINER Marina Nievas Rodríguez "marnierod@gmail.com"
 
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get install debconf-utils
