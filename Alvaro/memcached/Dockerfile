@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Alvaro Rodriguez <alvarorodmar94@gmail.com>
 
-RUN apt-get install apt-utils
+#RUN apt-get install apt-utils
 RUN apt-get -y --force-yes update
 RUN apt-get install -y memcached
 
