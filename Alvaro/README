@@ -1,0 +1,5 @@
+Para el docker-compose:
+Se deberán ejecutar las siguientes órdenes:
+docker run -d mem1 memcached -m 1024 -p 11211 -l 172.16.3.10
+docker run -d mem1 memcached -m 1024 -p 11211 -l 172.16.3.11
+               \----[Nombre de la imagen]
