@@ -7,6 +7,7 @@ RUN apt-get install -y apache2 libapache2-mod-fastcgi
 RUN apt-get clean 
 RUN rm -rf /var/lib/apt/lists/*
 RUN a2enmod fastcgi actions
+COPY php5-fpm.conf /etc/apache2/conf-available/php5-fpm.conf
 RUN a2enconf php5-fpm
 COPY scriptapache.sh /root/scriptapache.sh
 RUN chmod +x /root/scriptapache.sh
