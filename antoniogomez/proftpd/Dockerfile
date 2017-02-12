@@ -14,4 +14,4 @@ COPY ftpmgr.sh /root
 RUN chmod +x /root/ftpmgr.sh
 #Crea una regla de iptable para el puerto 21.
 EXPOSE 21
-ENTRYPOINT /root/ftpmgr.sh
+ENTRYPOINT /usr/sbin/proftpd -n
