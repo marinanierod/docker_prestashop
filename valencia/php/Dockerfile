@@ -1,10 +1,11 @@
 FROM debian
 RUN apt update -y
-RUN apt install php5 php5-memcached php5-fpm php5-mysql -y
-RUN sed -ri 's/^listen.*/listen=127.0.0.1:9000/' /etc/php5/fpm/pool.d/www.conf
+RUN apt-get -y install php5-fpm php5-mysql php5-gd php5 php5-cli php5-gd php5-mcrypt php5-memcache
+RUN sed -ri 's/^listen.*/listen=ip-publica:9000/' /etc/php5/fpm/pool.d/www.conf
+COPY phpconf.sh /root/phpconf.sh
+RUN chmod +x /root/phpconf.sh
+RUN /root/phpconf.sh
 
-expose 9000
-
-entrypoint /usr/sbin/php5-fpm --nodaemonize
+entrypoint /usr/sbin/php5-fpm —nodaemonize
 
 cmd ["php5-fpm"]
