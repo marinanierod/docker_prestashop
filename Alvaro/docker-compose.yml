@@ -1,0 +1,20 @@
+memcached1:
+        build: Alvaro/memcached
+        networks:
+            hlc:
+                ipv4_address: 172.16.3.10
+
+memcached2:
+        build: Alvaro/memcached
+        networks:
+            hlc:
+                ipv4_address: 172.16.3.11
+
+networks:
+    hlc:
+        driver: bridge
+        ipam:
+            config:
+            - subnet: 172.16.0.0/16
+
+
