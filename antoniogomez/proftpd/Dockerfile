@@ -1,5 +1,5 @@
 FROM debian
-
+MAINTAINER Antonio Gomez <antoniomgomezvarela@gmail.com>
 #Actualizamos e instalamos proftpd
 RUN apt-get update -y
 RUN apt-get install -y proftpd
