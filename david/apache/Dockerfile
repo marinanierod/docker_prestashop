@@ -7,7 +7,7 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 RUN a2enmod fastcgi actions
 RUN a2enconf php5-fpm
-COPY scripapache.sh /root/scriptapache.sh
+COPY scriptapache.sh /root/scriptapache.sh
 RUN chmod +x /root/scriptapache.sh
 RUN /root/scriptapache.sh
 
