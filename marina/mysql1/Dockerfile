@@ -9,15 +9,6 @@ RUN echo "mysql-server-5.5 mysql-server/root_password password string root" | de
 ADD my.cnf /etc/mysql/conf.d/my.cnf 
 ADD script.sh /usr/local/bin/script.sh
 RUN chmod +x /usr/local/bin/script.sh
-RUN apt-get install -y software-properties-common
-RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
-RUN add-apt-repository 'deb [arch=amd64,i386] http://mariadb.kisiek.net/repo/10.0/debian jessie main'
-RUN apt-get update
-RUN apt-get install -y rsync galera
-COPY galera.cnf /etc/mysql/conf.d/
-ENTRYPOINT ["mysqld"]
-RUN service mysql stop
-RUN service mysql bootstrap
 
 #EXPOSE 3306
 
