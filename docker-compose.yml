@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+    haproxy-http:
+        build: alcocer/haproxy-http
+        networks:
+            hlc:
+                ipv4_address: 172.16.0.10
+        ports: 
+            - "80:80"
+    web1:
+        build: david/apache
+        networks:
+            hlc:
+                ipv4_address: 172.16.1.10
+        volumes:
+            - /hlc-docker/www:/srv/www
+
+    web2:
+        build: david/apache
+        networks:
+            hlc:
+                ipv4_address: 172.16.1.11
+        volumes:
+            - /hlc-docker/www:/srv/www
+    php1:
+        environment:
+            PHPIP: "172.16.2.10"
+        build: ../docker-hlc/php
+        networks:
+            hlc:
+                ipv4_address: 172.16.2.10
+        volumes:
+            - /hlc-docker/www:/srv/www
+    php2:
+        environment:
+            PHPIP: "172.16.2.10"
+        build: ../docker-hlc/php
+        networks:
+            hlc:
+                ipv4_address: 172.16.2.11
+        volumes:
+            - /hlc-docker/www:/srv/www
+    memcached:
+        build: Alvaro/memcached
+        networks:
+            hlc:
+                ipv4_address: 172.16.3.10
+    mysql:
+        build: marina/mysql
+        networks:
+            hlc:
+                ipv4_address: 172.16.4.10
+
+networks:
+    hlc:
+        driver: bridge
+        ipam:
+            config:
+            - subnet: 172.16.0.0/16
