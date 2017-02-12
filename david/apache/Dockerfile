@@ -3,10 +3,16 @@ MAINTAINER David García Gómez "davgargom91@gmail.com"
 
 COPY sources.list /etc/apt/sources.list
 RUN apt-get update 
-RUN apt-get install -y apache2 libapache2-mod-fastcgi
+RUN apt-get install -y apache2 libapache2-mod-fastcgi unzip wget
 COPY php5-fpm.conf /etc/apache2/conf-available
 RUN a2enmod fastcgi actions
 RUN a2enconf php5-fpm
+RUN a2dissite 000-default
+COPY presta.sh /root/presta.sh
+RUN chmod +x /root/presta.sh
+RUN /root/presta.sh
+COPY prestashop.conf /etc/apache2/sites-available/prestashop.conf
+RUN a2ensite prestashop
 RUN service apache2 restart
 
 ENV APACHE_RUN_USER www-data
