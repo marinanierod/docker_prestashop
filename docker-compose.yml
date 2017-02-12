@@ -6,8 +6,15 @@ services:
         networks:
             hlc:
                 ipv4_address: 172.16.0.10
-        ports: 
+        ports:
             - "80:80"
+    ftp:
+        build: antoniogomez/proftpd
+        networks:
+            hlc:
+                ipv4_address: 172.16.5.10
+        ports:
+            - "21:21"
     web1:
         build: david/apache
         networks:
