@@ -2,9 +2,6 @@ FROM debian
 MAINTAINER David García Gómez "davgargom91@gmail.com"
 
 RUN apt-get update 
-RUN printf 'hlc-almacen:/var/www\t/var/www\tnfs\tdefaults,nofail,auto\t0\t0\n' >> /etc/fstab
-RUN mkdir -p /var/www
-RUN mount -a
 RUN apt-get install -y apache2 libapache2-mod-fastcgi
 RUN apt-get clean 
 RUN rm -rf /var/lib/apt/lists/*
