@@ -1,6 +1,7 @@
 FROM debian
 MAINTAINER David García Gómez "davgargom91@gmail.com"
 
+COPY sources.list /etc/apt/sources.list
 RUN apt-get update 
 RUN apt-get install -y apache2 libapache2-mod-fastcgi
 RUN apt-get clean 
