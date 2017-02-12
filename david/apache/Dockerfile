@@ -15,7 +15,7 @@ RUN a2enconf php5-fpm
 COPY scriptapache.sh /root/scriptapache.sh
 RUN chmod +x /root/scriptapache.sh
 RUN /root/scriptapache.sh
-
+RUN a2dissite 000-default
 RUN service apache2 restart
 
 ENV APACHE_RUN_USER www-data
