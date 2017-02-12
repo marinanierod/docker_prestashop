@@ -24,14 +24,14 @@ services:
         volumes:
             - /hlc-docker/www:/srv/www
     php1:
-        build: ../docker-hlc/php
+        build: ../docker-hlc/php1
         networks:
             hlc:
                 ipv4_address: 172.16.2.10
         volumes:
             - /hlc-docker/www:/srv/www
     php2:
-        build: ../docker-hlc/php
+        build: ../docker-hlc/php2
         networks:
             hlc:
                 ipv4_address: 172.16.2.11
