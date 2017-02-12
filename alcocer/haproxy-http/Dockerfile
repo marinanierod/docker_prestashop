@@ -7,7 +7,5 @@ COPY haproxy.conf /etc/haproxy/haproxy.conf
 COPY hamgr.sh /root/hamgr.sh
 RUN chmod +x /root/hamgr.sh
 
-# Habilita el puerto 5353
-EXPOSE 80 1936
-# Cuando no se pasan parámetros ejecuta el script
+EXPOSE 80
 ENTRYPOINT /root/hamgr.sh

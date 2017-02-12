@@ -6,8 +6,25 @@ services:
         networks:
             hlc:
                 ipv4_address: 172.16.0.10
+        ports: 
+            - "80:80"
+    web1:
+        build: david/apache
+        networks:
+            hlc:
+                ipv4_address: 172.16.1.10
+    web1:
+        build: david/apache
+        networks:
+            hlc:
+                ipv4_address: 172.16.1.11
+    php1:
+        build: ../docker-hlc/php
+        networks:
+            hlc:
+                ipv4_address: 172.16.2.10
     mysql:
-        build: marina/mysql
+        build: marina/mysql1
         networks:
             hlc:
                 ipv4_address: 172.16.4.10
