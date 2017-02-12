@@ -3,7 +3,7 @@ MAINTAINER David García Gómez "davgargom91@gmail.com"
 
 COPY sources.list /etc/apt/sources.list
 RUN apt-get update 
-RUN apt-get install -y apache2 libapache2-mod-fastcgi unzip
+RUN apt-get install -y apache2 libapache2-mod-fastcgi unzip wget
 RUN apt-get clean 
 RUN rm -rf /var/lib/apt/lists/*
 COPY presta.sh /root/presta.sh
