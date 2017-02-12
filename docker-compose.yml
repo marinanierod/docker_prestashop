@@ -24,8 +24,6 @@ services:
         volumes:
             - /hlc-docker/www:/srv/www
     php1:
-        environment:
-            PHPIP: "172.16.2.10"
         build: ../docker-hlc/php
         networks:
             hlc:
@@ -33,19 +31,22 @@ services:
         volumes:
             - /hlc-docker/www:/srv/www
     php2:
-        environment:
-            PHPIP: "172.16.2.10"
         build: ../docker-hlc/php
         networks:
             hlc:
                 ipv4_address: 172.16.2.11
         volumes:
             - /hlc-docker/www:/srv/www
-    memcached:
+    memcached1:
         build: Alvaro/memcached
         networks:
             hlc:
                 ipv4_address: 172.16.3.10
+    memcached2:
+        build: Alvaro/memcached
+        networks:
+            hlc:
+                ipv4_address: 172.16.3.11
     mysql:
         build: marina/mysql
         networks:
