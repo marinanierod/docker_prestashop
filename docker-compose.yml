@@ -2,12 +2,12 @@ version: "3"
 
 services:
     haproxy-http:
-        build: haproxy-http
+        build: alcocer/haproxy-http
         networks:
             hlc:
                 ipv4_address: 172.16.0.10
     mysql:
-        build: mysql
+        build: marina/mysql
         networks:
             hlc:
                 ipv4_address: 172.16.4.10
