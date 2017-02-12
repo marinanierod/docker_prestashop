@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+    haproxy:
+        build: haproxy-http
+        networks:
+            hlc:
+                ipv4_address: 172.16.0.10
+
+networks:
+    hlc:
+        driver: bridge
+        ipam:
+            config:
+            - subnet: 172.16.0.0/16
