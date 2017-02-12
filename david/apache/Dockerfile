@@ -4,8 +4,7 @@ MAINTAINER David García Gómez "davgargom91@gmail.com"
 COPY sources.list /etc/apt/sources.list
 RUN apt-get update 
 RUN apt-get install -y apache2 libapache2-mod-fastcgi
-RUN apt-get clean 
-RUN rm -rf /var/lib/apt/lists/*
+COPY php5-fpm.conf /etc/apache2/conf-available
 RUN a2enmod fastcgi actions
 RUN a2enconf php5-fpm
 RUN service apache2 restart
