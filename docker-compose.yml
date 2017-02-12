@@ -23,6 +23,11 @@ services:
         networks:
             hlc:
                 ipv4_address: 172.16.2.10
+    memcached:
+        build: Alvaro/memcached
+        networks:
+            hlc:
+                ipv4_address: 172.16.3.10
     mysql:
         build: marina/mysql1
         networks:
