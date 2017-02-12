@@ -20,8 +20,3 @@ ADD ["info.php","/var/www/html/"]
 ADD ["php5-fpm.conf","/etc/apache2/conf-available/"]
 
 ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-
-<<<<<<< HEAD
-ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-=======
->>>>>>> david
