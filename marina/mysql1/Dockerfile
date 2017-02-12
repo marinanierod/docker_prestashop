@@ -13,7 +13,7 @@ RUN apt-get install -y software-properties-common
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
 RUN add-apt-repository 'deb [arch=amd64,i386] http://mariadb.kisiek.net/repo/10.0/debian jessie main'
 RUN apt-get update
-RUN apt-get install -y rsync galera mariadb-galera-server
+RUN apt-get install -y rsync galera
 COPY galera.cnf /etc/mysql/conf.d/
 ENTRYPOINT ["mysqld"]
 RUN service mysql stop
