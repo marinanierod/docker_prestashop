@@ -7,5 +7,4 @@ COPY haproxy.conf /etc/haproxy/haproxy.conf
 COPY hamgr.sh /root/hamgr.sh
 RUN chmod +x /root/hamgr.sh
 
-EXPOSE 80
-ENTRYPOINT /root/hamgr.sh
+ENTRYPOINT /usr/sbin/haproxy -d
