@@ -1,7 +1,9 @@
-    ftp:
+ftpd:
         build: antoniogomez/proftpd
         networks:
             hlc:
                 ipv4_address: 172.16.5.10
         ports:
-            - "21:21"	
+            - "21:21"
+        volumes:
+            - data-volume:/srv/www
