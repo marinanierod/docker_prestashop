@@ -13,6 +13,11 @@ services:
         networks:
             hlc:
                 ipv4_address: 172.16.0.11
+    haproxy-mem:
+        build: alcocer/haproxy-mem
+        networks:
+            hlc:
+                ipv4_address: 172.16.0.12
     web1:
         build: david/apache
         networks:
@@ -20,7 +25,6 @@ services:
                 ipv4_address: 172.16.1.20
         volumes:
             - data-volume:/srv/www
-
     web2:
         build: david/apache
         networks:
@@ -57,7 +61,15 @@ services:
         networks:
             hlc:
                 ipv4_address: 172.16.4.10
-
+    ftpd:
+        build: antoniogomez/proftpd
+        networks:
+            hlc:
+                ipv4_address: 172.16.5.10
+        ports:
+            - "21:21"
+        volumes:
+            - data-volume:/srv/www
 networks:
     hlc:
         driver: bridge

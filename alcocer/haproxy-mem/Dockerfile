@@ -1,5 +1,5 @@
 FROM debian
-LABEL maintainer Manuel Alcocer <manuel@alcocer.net>
+MAINTAINER Manuel Alcocer <manuel@alcocer.net>
 RUN apt-get -y --force-yes update
 RUN apt-get -y --force-yes install haproxy hatop
 
